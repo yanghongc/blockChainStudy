@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/yanghongc/blockChainStudy/controller/admin"
 	"github.com/yanghongc/blockChainStudy/controller/defaultInit"
+	"github.com/yanghongc/blockChainStudy/controller/tall"
 )
 
 // 注册和登录
@@ -35,7 +36,7 @@ func TitleConRoutersInit(r *gin.Engine) {
 		//实现文章的更新功能，只有文章的作者才能更新自己的文章。
 		defaultRouters.POST("/upd", admin.PostController{}.UpdCont)
 		//实现文章的读取功能，支持获取所有文章列表和单个文章的详细信息。
-		defaultRouters.POST("/sel", admin.PostController{}.SelCont)
+		defaultRouters.GET("/sel", admin.PostController{}.SelCont)
 	}
 }
 
@@ -47,10 +48,9 @@ func TallConRoutersInit(r *gin.Engine) {
 	//登录认证
 	defaultRouters := r.Group("/tall", defaultInit.CheckLogin)
 	{
-		defaultRouters.POST("/", admin.PostController{}.Admin)
 		//实现评论的创建功能，已认证的用户可以对文章发表评论。
-		defaultRouters.POST("/add", admin.PostController{}.AddCont)
+		defaultRouters.POST("/add", tall.TallControllerInit{}.AddTall)
 		//实现评论的读取功能，支持获取某篇文章的所有评论列表。
-		defaultRouters.POST("/sel", admin.PostController{}.SelCont)
+		defaultRouters.GET("/sel", tall.TallControllerInit{}.SelTall)
 	}
 }

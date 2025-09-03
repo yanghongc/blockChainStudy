@@ -31,7 +31,7 @@ func (tall TallControllerInit) SelTall(c *gin.Context) {
 
 	modules.DB.Where("post_id = ?", c.PostForm("post_id")).Find(&com)
 
-	c.String(http.StatusOK, gin.H{
+	c.JSON(http.StatusOK, gin.H{
 		"result": com,
 	})
 
