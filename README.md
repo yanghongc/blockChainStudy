@@ -1,4 +1,4 @@
-<img width="869" height="276" alt="image" src="https://github.com/user-attachments/assets/cb813d89-f867-4d06-b4dd-b22b9f5f8d73" />基于 Go、Gin 和 GORM 开发的个人博客系统后端
+基于 Go、Gin 和 GORM 开发的个人博客系统后端
 
 功能特性 ：
 
